@@ -61,11 +61,20 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 0;
+      gap: 16px;
     }
 
-    .nav .brand {
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
       font-weight: 700;
       letter-spacing: 0.02em;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -73,6 +82,29 @@
       gap: 18px;
       flex-wrap: wrap;
       font-size: 0.95rem;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--accent), #5d86ff);
+      border-color: transparent;
+      color: white;
     }
 
     .hero {
@@ -184,14 +216,6 @@
       gap: 18px;
     }
 
-    .project h3 {
-      margin-bottom: 8px;
-    }
-
-    .project p {
-      margin-top: 0;
-    }
-
     .small {
       font-size: 0.95rem;
       color: var(--muted);
@@ -234,6 +258,34 @@
       padding: 0;
     }
 
+    .lang {
+      display: none;
+    }
+
+    html[data-lang="ja"] .lang-ja {
+      display: inline;
+    }
+
+    html[data-lang="ja"] .lang-ja.block {
+      display: block;
+    }
+
+    html[data-lang="ja"] .lang-ja.flex {
+      display: flex;
+    }
+
+    html[data-lang="en"] .lang-en {
+      display: inline;
+    }
+
+    html[data-lang="en"] .lang-en.block {
+      display: block;
+    }
+
+    html[data-lang="en"] .lang-en.flex {
+      display: flex;
+    }
+
     footer {
       padding: 40px 0 60px;
       color: var(--muted);
@@ -247,9 +299,14 @@
       }
 
       .nav {
-        gap: 12px;
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
       }
     }
   </style>
@@ -257,17 +314,45 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">Tomohisa Tabuchi</div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#interests">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="nav-left">
+        <div class="brand">Tomohisa Tabuchi</div>
+        <nav class="nav-links">
+          <a href="#about">
+            <span class="lang lang-ja">概要</span>
+            <span class="lang lang-en">About</span>
+          </a>
+          <a href="#education">
+            <span class="lang lang-ja">学歴</span>
+            <span class="lang lang-en">Education</span>
+          </a>
+          <a href="#interests">
+            <span class="lang lang-ja">研究関心</span>
+            <span class="lang lang-en">Research</span>
+          </a>
+          <a href="#experience">
+            <span class="lang lang-ja">経験</span>
+            <span class="lang lang-en">Experience</span>
+          </a>
+          <a href="#projects">
+            <span class="lang lang-ja">プロジェクト</span>
+            <span class="lang lang-en">Projects</span>
+          </a>
+          <a href="#skills">
+            <span class="lang lang-ja">スキル</span>
+            <span class="lang lang-en">Skills</span>
+          </a>
+          <a href="#cv">CV</a>
+          <a href="#contact">
+            <span class="lang lang-ja">連絡先</span>
+            <span class="lang lang-en">Contact</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('ja')" id="btn-ja">日本語</button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+      </div>
     </div>
   </header>
 
@@ -275,29 +360,59 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <div class="badge">AI × RAN × GPU Computing</div>
+          <div class="badge">
+            <span class="lang lang-ja">AI × RAN × GPU コンピューティング</span>
+            <span class="lang lang-en">AI × RAN × GPU Computing</span>
+          </div>
+
           <h1>Tomohisa Tabuchi</h1>
+
           <p class="lead">
-            I am an engineer and researcher interested in AI for wireless networks,
-            reinforcement learning for RAN control, and GPU-accelerated communication systems.
-            My recent work focuses on scheduling, resource allocation, and simulation-based optimization
-            for next-generation radio access networks.
+            <span class="lang lang-ja">
+              無線通信に対するAI活用、RAN制御のための強化学習、GPU加速された通信システムに関心を持つエンジニア・研究者です。
+              近年は、次世代無線アクセスネットワークにおけるスケジューリング、リソース割り当て、シミュレーションベース最適化に取り組んでいます。
+            </span>
+            <span class="lang lang-en">
+              I am an engineer and researcher interested in AI for wireless networks,
+              reinforcement learning for RAN control, and GPU-accelerated communication systems.
+              My recent work focuses on scheduling, resource allocation, and simulation-based optimization
+              for next-generation radio access networks.
+            </span>
           </p>
+
           <div class="hero-actions">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="#cv">See CV</a>
+            <a class="btn primary" href="#projects">
+              <span class="lang lang-ja">プロジェクトを見る</span>
+              <span class="lang lang-en">View Projects</span>
+            </a>
+            <a class="btn" href="#cv">
+              <span class="lang lang-ja">CVを見る</span>
+              <span class="lang lang-en">See CV</span>
+            </a>
             <a class="btn" href="https://github.com/YOUR_GITHUB_NAME" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
 
         <aside class="card profile-card">
-          <h3>Current Focus</h3>
+          <h3>
+            <span class="lang lang-ja">現在の注力分野</span>
+            <span class="lang lang-en">Current Focus</span>
+          </h3>
           <p class="small">
-            Reinforcement learning for wireless resource scheduling, simulation environments for RAN control,
-            and high-performance system implementation with C/C++, CUDA, and MATLAB.
+            <span class="lang lang-ja">
+              無線リソーススケジューリングのための強化学習、RAN制御向けシミュレーション環境、
+              C/C++・CUDA・MATLABを用いた高性能システム実装に取り組んでいます。
+            </span>
+            <span class="lang lang-en">
+              Reinforcement learning for wireless resource scheduling, simulation environments for RAN control,
+              and high-performance system implementation with C/C++, CUDA, and MATLAB.
+            </span>
           </p>
 
-          <h3>Keywords</h3>
+          <h3>
+            <span class="lang lang-ja">キーワード</span>
+            <span class="lang lang-en">Keywords</span>
+          </h3>
           <div class="chips">
             <span class="chip">AI for RAN</span>
             <span class="chip">Reinforcement Learning</span>
@@ -311,132 +426,277 @@
     </section>
 
     <section id="about">
-      <h2>About</h2>
+      <h2>
+        <span class="lang lang-ja">概要</span>
+        <span class="lang lang-en">About</span>
+      </h2>
       <div class="card">
         <p>
-          I work on the intersection of wireless communications, machine learning, and high-performance computing.
-          I am particularly interested in building practical AI-driven control mechanisms for radio access networks,
-          including RL-based schedulers, simulation platforms, and GPU-accelerated implementations.
+          <span class="lang lang-ja">
+            私は、無線通信、機械学習、高性能計算の交差領域に取り組んでいます。
+            特に、RLベースのスケジューラ、シミュレーション基盤、GPU加速実装などを通じて、
+            無線アクセスネットワークにおける実用的なAI制御機構を構築することに関心があります。
+          </span>
+          <span class="lang lang-en">
+            I work on the intersection of wireless communications, machine learning, and high-performance computing.
+            I am particularly interested in building practical AI-driven control mechanisms for radio access networks,
+            including RL-based schedulers, simulation platforms, and GPU-accelerated implementations.
+          </span>
         </p>
       </div>
     </section>
 
     <section id="education">
-      <h2>Education</h2>
+      <h2>
+        <span class="lang lang-ja">学歴</span>
+        <span class="lang lang-en">Education</span>
+      </h2>
       <div class="timeline">
         <div class="card timeline-item">
           <div class="timeline-top">
-            <div class="timeline-title">Master’s Degree / Graduate Study in Electrical and Information Engineering</div>
+            <div class="timeline-title">
+              <span class="lang lang-ja">電気・情報系分野における大学院課程</span>
+              <span class="lang lang-en">Graduate Study in Electrical and Information Engineering</span>
+            </div>
             <div class="timeline-meta">YOUR_UNIVERSITY_NAME</div>
           </div>
           <p>
-            Specialized in wireless communications, network control, and AI-based optimization for communication systems.
-            Focused on reinforcement learning for resource scheduling and simulation-driven evaluation in radio access networks.
+            <span class="lang lang-ja">
+              無線通信、ネットワーク制御、通信システムに対するAI最適化を専門としています。
+              特に、無線アクセスネットワークにおけるリソーススケジューリングと、
+              シミュレーションベース評価のための強化学習に関心を持っています。
+            </span>
+            <span class="lang lang-en">
+              Specialized in wireless communications, network control, and AI-based optimization for communication systems.
+              Focused on reinforcement learning for resource scheduling and simulation-driven evaluation in radio access networks.
+            </span>
           </p>
           <ul class="clean">
-            <li>Wireless communications and radio access network control</li>
-            <li>Reinforcement learning for scheduling and resource allocation</li>
-            <li>Simulation-based evaluation using Python, C/C++, CUDA, and MATLAB</li>
+            <li>
+              <span class="lang lang-ja">無線通信および無線アクセスネットワーク制御</span>
+              <span class="lang lang-en">Wireless communications and radio access network control</span>
+            </li>
+            <li>
+              <span class="lang lang-ja">スケジューリングとリソース割り当てのための強化学習</span>
+              <span class="lang lang-en">Reinforcement learning for scheduling and resource allocation</span>
+            </li>
+            <li>
+              <span class="lang lang-ja">Python・C/C++・CUDA・MATLABを用いたシミュレーション評価</span>
+              <span class="lang lang-en">Simulation-based evaluation using Python, C/C++, CUDA, and MATLAB</span>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
     <section id="interests">
-      <h2>Research Interests</h2>
+      <h2>
+        <span class="lang lang-ja">研究関心</span>
+        <span class="lang lang-en">Research Interests</span>
+      </h2>
       <div class="grid-2">
         <div class="card">
-          <h3>AI for Wireless Networks</h3>
+          <h3>
+            <span class="lang lang-ja">無線ネットワークのためのAI</span>
+            <span class="lang lang-en">AI for Wireless Networks</span>
+          </h3>
           <p>
-            Reinforcement learning and data-driven optimization for scheduling, resource allocation,
-            and network control in RAN systems.
+            <span class="lang lang-ja">
+              RANシステムにおけるスケジューリング、リソース割り当て、ネットワーク制御のための
+              強化学習およびデータ駆動最適化。
+            </span>
+            <span class="lang lang-en">
+              Reinforcement learning and data-driven optimization for scheduling, resource allocation,
+              and network control in RAN systems.
+            </span>
           </p>
         </div>
+
         <div class="card">
-          <h3>GPU-Accelerated Communication Systems</h3>
+          <h3>
+            <span class="lang lang-ja">GPU加速通信システム</span>
+            <span class="lang lang-en">GPU-Accelerated Communication Systems</span>
+          </h3>
           <p>
-            CUDA-based acceleration and high-performance implementation for communication signal processing
-            and RAN software systems.
+            <span class="lang lang-ja">
+              通信信号処理およびRANソフトウェアシステムのための、CUDAベースの高速化と高性能実装。
+            </span>
+            <span class="lang lang-en">
+              CUDA-based acceleration and high-performance implementation for communication signal processing
+              and RAN software systems.
+            </span>
           </p>
         </div>
+
         <div class="card">
-          <h3>Simulation and System Prototyping</h3>
+          <h3>
+            <span class="lang lang-ja">シミュレーションとシステム試作</span>
+            <span class="lang lang-en">Simulation and System Prototyping</span>
+          </h3>
           <p>
-            End-to-end experimentation using Python, C/C++, and MATLAB for communication-system simulation
-            and algorithm development.
+            <span class="lang lang-ja">
+              Python、C/C++、MATLABを用いた、通信システムシミュレーションとアルゴリズム開発のための
+              エンドツーエンド実験基盤。
+            </span>
+            <span class="lang lang-en">
+              End-to-end experimentation using Python, C/C++, and MATLAB for communication-system simulation
+              and algorithm development.
+            </span>
           </p>
         </div>
+
         <div class="card">
-          <h3>Future Directions</h3>
+          <h3>
+            <span class="lang lang-ja">今後の方向性</span>
+            <span class="lang lang-en">Future Directions</span>
+          </h3>
           <p>
-            Scalable AI systems for wireless infrastructure, robust online adaptation,
-            and practical deployment of learning-based control.
+            <span class="lang lang-ja">
+              無線インフラ向けのスケーラブルなAIシステム、堅牢なオンライン適応、
+              学習ベース制御の実運用展開に関心があります。
+            </span>
+            <span class="lang lang-en">
+              Scalable AI systems for wireless infrastructure, robust online adaptation,
+              and practical deployment of learning-based control.
+            </span>
           </p>
         </div>
       </div>
     </section>
 
     <section id="experience">
-      <h2>Experience</h2>
+      <h2>
+        <span class="lang lang-ja">経験</span>
+        <span class="lang lang-en">Experience</span>
+      </h2>
       <div class="timeline">
         <div class="card timeline-item">
           <div class="timeline-top">
-            <div class="timeline-title">Research / Engineering Internship</div>
+            <div class="timeline-title">
+              <span class="lang lang-ja">研究・エンジニアリングインターン</span>
+              <span class="lang lang-en">Research / Engineering Internship</span>
+            </div>
             <div class="timeline-meta">YOUR_COMPANY_NAME · YYYY</div>
           </div>
           <p>
-            Worked on research and development related to wireless systems, simulation, and AI-based control.
-            Contributed to implementation, evaluation, and experimentation in communication-system software.
+            <span class="lang lang-ja">
+              無線システム、シミュレーション、AIベース制御に関連する研究開発に従事しました。
+              通信システムソフトウェアにおける実装、評価、実験に取り組みました。
+            </span>
+            <span class="lang lang-en">
+              Worked on research and development related to wireless systems, simulation, and AI-based control.
+              Contributed to implementation, evaluation, and experimentation in communication-system software.
+            </span>
           </p>
           <ul class="clean">
-            <li>Developed or supported simulation and evaluation pipelines</li>
-            <li>Worked with Python, C/C++, CUDA, or MATLAB depending on the task</li>
-            <li>Explored practical applications of AI in communication and network systems</li>
+            <li>
+              <span class="lang lang-ja">シミュレーションおよび評価パイプラインの構築・支援</span>
+              <span class="lang lang-en">Developed or supported simulation and evaluation pipelines</span>
+            </li>
+            <li>
+              <span class="lang lang-ja">課題に応じて Python、C/C++、CUDA、MATLAB を使用</span>
+              <span class="lang lang-en">Worked with Python, C/C++, CUDA, or MATLAB depending on the task</span>
+            </li>
+            <li>
+              <span class="lang lang-ja">通信・ネットワークシステムへのAI活用を検討</span>
+              <span class="lang lang-en">Explored practical applications of AI in communication and network systems</span>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Selected Projects</h2>
+      <h2>
+        <span class="lang lang-ja">プロジェクト</span>
+        <span class="lang lang-en">Selected Projects</span>
+      </h2>
       <div class="grid-2">
-        <div class="card project">
+        <div class="card">
           <h3>RL-based RAN Scheduler</h3>
           <p>
-            Designing reinforcement learning approaches for wireless resource scheduling,
-            with emphasis on throughput, fairness, and latency-aware control.
+            <span class="lang lang-ja">
+              スループット、公平性、遅延を考慮した無線リソーススケジューリングのための強化学習手法を設計。
+            </span>
+            <span class="lang lang-en">
+              Designing reinforcement learning approaches for wireless resource scheduling,
+              with emphasis on throughput, fairness, and latency-aware control.
+            </span>
           </p>
         </div>
-        <div class="card project">
+
+        <div class="card">
           <h3>cuPHY Test Development</h3>
           <p>
-            Implementing and organizing test code for example components in CUDA-accelerated RAN software,
-            focusing on maintainability and verification.
+            <span class="lang lang-ja">
+              CUDA加速RANソフトウェア中の example コンポーネントに対し、
+              保守性と検証性を重視したテストコードを実装・整理。
+            </span>
+            <span class="lang lang-en">
+              Implementing and organizing test code for example components in CUDA-accelerated RAN software,
+              focusing on maintainability and verification.
+            </span>
           </p>
         </div>
-        <div class="card project">
+
+        <div class="card">
           <h3>MATLAB-based Wireless Simulation</h3>
           <p>
-            Building simulation environments for communication-system evaluation and RL integration,
-            including step-wise execution and policy experimentation.
+            <span class="lang lang-ja">
+              通信システム評価とRL統合のためのシミュレーション環境を構築し、
+              ステップ実行やポリシー評価を実施。
+            </span>
+            <span class="lang lang-en">
+              Building simulation environments for communication-system evaluation and RL integration,
+              including step-wise execution and policy experimentation.
+            </span>
           </p>
         </div>
-        <div class="card project">
+
+        <div class="card">
           <h3>AI-RAN Research Exploration</h3>
           <p>
-            Investigating practical directions for combining machine learning with radio access networks,
-            from policy control to system-level implementation.
+            <span class="lang lang-ja">
+              ポリシー制御からシステム実装まで、
+              機械学習と無線アクセスネットワークの実践的な融合方法を調査。
+            </span>
+            <span class="lang lang-en">
+              Investigating practical directions for combining machine learning with radio access networks,
+              from policy control to system-level implementation.
+            </span>
           </p>
         </div>
       </div>
     </section>
 
     <section id="skills">
-      <h2>Technical Skills</h2>
+      <h2>
+        <span class="lang lang-ja">技術スキル</span>
+        <span class="lang lang-en">Technical Skills</span>
+      </h2>
       <div class="card">
-        <p><strong>Programming Languages:</strong> Python, C/C++, CUDA, MATLAB</p>
-        <p><strong>Areas:</strong> Reinforcement Learning, Wireless Communications, RAN Scheduling, GPU Computing, Simulation</p>
-        <p><strong>Tools:</strong> Git, Docker, Linux, VS Code</p>
+        <p>
+          <strong>
+            <span class="lang lang-ja">プログラミング言語:</span>
+            <span class="lang lang-en">Programming Languages:</span>
+          </strong>
+          Python, C/C++, CUDA, MATLAB
+        </p>
+        <p>
+          <strong>
+            <span class="lang lang-ja">分野:</span>
+            <span class="lang lang-en">Areas:</span>
+          </strong>
+          <span class="lang lang-ja">強化学習、無線通信、RANスケジューリング、GPU計算、シミュレーション</span>
+          <span class="lang lang-en">Reinforcement Learning, Wireless Communications, RAN Scheduling, GPU Computing, Simulation</span>
+        </p>
+        <p>
+          <strong>
+            <span class="lang lang-ja">ツール:</span>
+            <span class="lang lang-en">Tools:</span>
+          </strong>
+          Git, Docker, Linux, VS Code
+        </p>
       </div>
     </section>
 
@@ -444,22 +704,35 @@
       <h2>CV</h2>
       <div class="card">
         <p>
-          You can place your PDF CV here later.
+          <span class="lang lang-ja">
+            後でPDFのCVをここに配置できます。
+          </span>
+          <span class="lang lang-en">
+            You can place your PDF CV here later.
+          </span>
         </p>
         <p>
-          Example:
           <a href="./Tomohisa_Tabuchi_CV.pdf" target="_blank" rel="noopener noreferrer">
-            Download CV (PDF)
+            <span class="lang lang-ja">CVをダウンロード (PDF)</span>
+            <span class="lang lang-en">Download CV (PDF)</span>
           </a>
         </p>
         <p class="small">
-          後で `Tomohisa_Tabuchi_CV.pdf` をこのリポジトリに追加すれば、そのままダウンロードリンクとして使えます。
+          <span class="lang lang-ja">
+            後で `Tomohisa_Tabuchi_CV.pdf` をこのリポジトリに追加すれば、そのままダウンロードリンクとして使えます。
+          </span>
+          <span class="lang lang-en">
+            Add `Tomohisa_Tabuchi_CV.pdf` to this repository later, and this link will work as your CV download link.
+          </span>
         </p>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2>
+        <span class="lang lang-ja">連絡先</span>
+        <span class="lang lang-en">Contact</span>
+      </h2>
       <div class="card">
         <p>
           GitHub:
@@ -478,5 +751,34 @@
   <footer class="container">
     <p>© 2026 Tomohisa Tabuchi</p>
   </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      const btnJa = document.getElementById('btn-ja');
+      const btnEn = document.getElementById('btn-en');
+
+      if (lang === 'ja') {
+        btnJa.classList.add('active');
+        btnEn.classList.remove('active');
+      } else {
+        btnEn.classList.add('active');
+        btnJa.classList.remove('active');
+      }
+
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    (function () {
+      const saved = localStorage.getItem('preferredLanguage');
+      if (saved === 'en' || saved === 'ja') {
+        setLanguage(saved);
+      } else {
+        setLanguage('ja');
+      }
+    })();
+  </script>
 </body>
 </html>
