@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomohisa Tabuchi | Research Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --card: #151d3a;
+      --text: #e8ecf8;
+      --muted: #a7b0c8;
+      --accent: #7aa2ff;
+      --accent-2: #8ee3cf;
+      --border: #253056;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #0f1530 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 16, 32, 0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .nav .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent-2);
+      background: rgba(142, 227, 207, 0.08);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #5d86ff);
+      color: white;
+      border: none;
+    }
+
+    .card {
+      background: rgba(21, 29, 58, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-card h3,
+    section h2 {
+      margin-top: 0;
+    }
+
+    section {
+      padding: 26px 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    p, li {
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      background: rgba(122, 162, 255, 0.1);
+      border: 1px solid rgba(122, 162, 255, 0.18);
+      border-radius: 999px;
+      color: #d9e4ff;
+      font-size: 0.92rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project h3 {
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      margin-top: 0;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 40px 0 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero-grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        gap: 12px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Tomohisa Tabuchi</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#interests">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">AI × RAN × GPU Computing</div>
+          <h1>Tomohisa Tabuchi</h1>
+          <p class="lead">
+            I am an engineer and researcher interested in AI for wireless networks,
+            reinforcement learning for RAN control, and GPU-accelerated communication systems.
+            My recent work focuses on scheduling, resource allocation, and simulation-based optimization
+            for next-generation radio access networks.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#cv">See CV</a>
+            <a class="btn" href="https://github.com/YOUR_GITHUB_NAME" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="card profile-card">
+          <h3>Current Focus</h3>
+          <p class="small">
+            Reinforcement learning for wireless resource scheduling, simulation environments for RAN control,
+            and high-performance system implementation with C/C++, CUDA, and MATLAB.
+          </p>
+
+          <h3>Keywords</h3>
+          <div class="chips">
+            <span class="chip">AI for RAN</span>
+            <span class="chip">Reinforcement Learning</span>
+            <span class="chip">Wireless Scheduling</span>
+            <span class="chip">CUDA</span>
+            <span class="chip">MATLAB</span>
+            <span class="chip">C/C++</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          I work on the intersection of wireless communications, machine learning, and high-performance computing.
+          I am particularly interested in building practical AI-driven control mechanisms for radio access networks,
+          including RL-based schedulers, simulation platforms, and GPU-accelerated implementations.
+        </p>
+      </div>
+    </section>
+
+    <section id="interests">
+      <h2>Research Interests</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>AI for Wireless Networks</h3>
+          <p>
+            Reinforcement learning and data-driven optimization for scheduling, resource allocation,
+            and network control in RAN systems.
+          </p>
+        </div>
+        <div class="card">
+          <h3>GPU-Accelerated Communication Systems</h3>
+          <p>
+            CUDA-based acceleration and high-performance implementation for communication signal processing
+            and RAN software systems.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Simulation and System Prototyping</h3>
+          <p>
+            End-to-end experimentation using Python, C/C++, and MATLAB for communication-system simulation
+            and algorithm development.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Future Directions</h3>
+          <p>
+            Scalable AI systems for wireless infrastructure, robust online adaptation,
+            and practical deployment of learning-based control.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid-2">
+        <div class="card project">
+          <h3>RL-based RAN Scheduler</h3>
+          <p>
+            Designing reinforcement learning approaches for wireless resource scheduling,
+            with emphasis on throughput, fairness, and latency-aware control.
+          </p>
+        </div>
+        <div class="card project">
+          <h3>cuPHY Test Development</h3>
+          <p>
+            Implementing and organizing test code for example components in CUDA-accelerated RAN software,
+            focusing on maintainability and verification.
+          </p>
+        </div>
+        <div class="card project">
+          <h3>MATLAB-based Wireless Simulation</h3>
+          <p>
+            Building simulation environments for communication-system evaluation and RL integration,
+            including step-wise execution and policy experimentation.
+          </p>
+        </div>
+        <div class="card project">
+          <h3>AI-RAN Research Exploration</h3>
+          <p>
+            Investigating practical directions for combining machine learning with radio access networks,
+            from policy control to system-level implementation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="card">
+        <p><strong>Programming Languages:</strong> Python, C/C++, CUDA, MATLAB</p>
+        <p><strong>Areas:</strong> Reinforcement Learning, Wireless Communications, RAN Scheduling, GPU Computing, Simulation</p>
+        <p><strong>Tools:</strong> Git, Docker, Linux, VS Code</p>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>CV</h2>
+      <div class="card">
+        <p>
+          You can place your PDF CV here later.
+        </p>
+        <p>
+          Example:
+          <a href="./Tomohisa_Tabuchi_CV.pdf" target="_blank" rel="noopener noreferrer">
+            Download CV (PDF)
+          </a>
+        </p>
+        <p class="small">
+          まだPDFがなければ、このリンクは一旦そのままで大丈夫です。後で `Tomohisa_Tabuchi_CV.pdf` を追加すれば動きます。
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>
+          GitHub:
+          <a href="https://github.com/YOUR_GITHUB_NAME" target="_blank" rel="noopener noreferrer">
+            github.com/YOUR_GITHUB_NAME
+          </a>
+        </p>
+        <p>
+          Email:
+          <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© 2026 Tomohisa Tabuchi</p>
+  </footer>
+</body>
+</html>
