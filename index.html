@@ -155,6 +155,10 @@
       margin-bottom: 14px;
     }
 
+    h3 {
+      margin-bottom: 8px;
+    }
+
     p, li {
       color: var(--muted);
     }
@@ -193,6 +197,43 @@
       color: var(--muted);
     }
 
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .timeline-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    ul.clean {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
     footer {
       padding: 40px 0 60px;
       color: var(--muted);
@@ -219,7 +260,9 @@
       <div class="brand">Tomohisa Tabuchi</div>
       <nav class="nav-links">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#interests">Research</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#cv">CV</a>
@@ -278,6 +321,27 @@
       </div>
     </section>
 
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="card timeline-item">
+          <div class="timeline-top">
+            <div class="timeline-title">Master’s Degree / Graduate Study in Electrical and Information Engineering</div>
+            <div class="timeline-meta">YOUR_UNIVERSITY_NAME</div>
+          </div>
+          <p>
+            Specialized in wireless communications, network control, and AI-based optimization for communication systems.
+            Focused on reinforcement learning for resource scheduling and simulation-driven evaluation in radio access networks.
+          </p>
+          <ul class="clean">
+            <li>Wireless communications and radio access network control</li>
+            <li>Reinforcement learning for scheduling and resource allocation</li>
+            <li>Simulation-based evaluation using Python, C/C++, CUDA, and MATLAB</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="interests">
       <h2>Research Interests</h2>
       <div class="grid-2">
@@ -308,6 +372,27 @@
             Scalable AI systems for wireless infrastructure, robust online adaptation,
             and practical deployment of learning-based control.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="card timeline-item">
+          <div class="timeline-top">
+            <div class="timeline-title">Research / Engineering Internship</div>
+            <div class="timeline-meta">YOUR_COMPANY_NAME · YYYY</div>
+          </div>
+          <p>
+            Worked on research and development related to wireless systems, simulation, and AI-based control.
+            Contributed to implementation, evaluation, and experimentation in communication-system software.
+          </p>
+          <ul class="clean">
+            <li>Developed or supported simulation and evaluation pipelines</li>
+            <li>Worked with Python, C/C++, CUDA, or MATLAB depending on the task</li>
+            <li>Explored practical applications of AI in communication and network systems</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -368,7 +453,7 @@
           </a>
         </p>
         <p class="small">
-          まだPDFがなければ、このリンクは一旦そのままで大丈夫です。後で `Tomohisa_Tabuchi_CV.pdf` を追加すれば動きます。
+          後で `Tomohisa_Tabuchi_CV.pdf` をこのリポジトリに追加すれば、そのままダウンロードリンクとして使えます。
         </p>
       </div>
     </section>
